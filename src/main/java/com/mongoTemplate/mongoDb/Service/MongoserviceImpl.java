@@ -20,9 +20,7 @@ public class MongoserviceImpl {
     {
         System.out.println("inside impl");
         Query query = new Query();
-
         query.addCriteria(Criteria.where("age").lte(30));
-
         List<User> users = mongoTemplate.findAll(User.class);
 
         return users;
@@ -37,11 +35,8 @@ public class MongoserviceImpl {
     public List<User> findUserBy()
     {
         Query query = new Query();
-
-
         query.addCriteria(Criteria.where("age").gte(25));
         query.addCriteria(Criteria.where("isActive").is(true));
-
         List<User> users = mongoTemplate.find(query, User.class);
         return users;
     }
