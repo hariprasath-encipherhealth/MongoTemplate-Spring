@@ -9,12 +9,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class User {
 
+    @NonNull
     private String name;
     @NonNull
     private int age;
     @NonNull
     private String email;
+    @NonNull
     private String city;
+    @NonNull
     private boolean isActive;
 
     public User()

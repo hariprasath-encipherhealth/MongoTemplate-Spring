@@ -1,6 +1,7 @@
 package com.mongoTemplate.mongoDb.Controller;
 
 
+import com.mongoTemplate.mongoDb.DTO.CityGroup;
 import com.mongoTemplate.mongoDb.Document.User;
 import com.mongoTemplate.mongoDb.Service.MongoserviceImpl;
 import com.mongoTemplate.mongoDb.Service.UserAggregation;
@@ -42,6 +43,12 @@ public class UserController {
     public List<User> getByAggregate()
     {
         return userAggregation.getUserByAge();
+    }
+
+    @GetMapping("/groupBy/aggregate/city")
+    public List<CityGroup> groupBy()
+    {
+        return userAggregation.getUserAgeGroupCount();
     }
 
 
