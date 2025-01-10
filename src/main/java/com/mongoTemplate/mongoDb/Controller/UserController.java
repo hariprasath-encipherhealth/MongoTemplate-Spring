@@ -2,6 +2,7 @@ package com.mongoTemplate.mongoDb.Controller;
 
 
 import com.mongoTemplate.mongoDb.DTO.CityGroup;
+import com.mongoTemplate.mongoDb.DTO.ProjectionClass;
 import com.mongoTemplate.mongoDb.Document.User;
 import com.mongoTemplate.mongoDb.Service.MongoserviceImpl;
 import com.mongoTemplate.mongoDb.Service.UserAggregation;
@@ -51,8 +52,9 @@ public class UserController {
         return userAggregation.getUserCityGroupCount();
     }
 
-
-
-
-
+    @GetMapping("/get/project")
+    public List<ProjectionClass> getProject()
+    {
+        return userAggregation.findAndRenameFields();
+    }
 }
