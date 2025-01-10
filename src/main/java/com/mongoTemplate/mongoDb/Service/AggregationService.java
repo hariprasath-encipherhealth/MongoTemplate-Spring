@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserAggregation {
+public class AggregationService {
 
     @Autowired
     MongoTemplate mongoTemplate;

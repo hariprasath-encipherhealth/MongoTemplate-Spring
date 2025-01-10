@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MongoserviceImpl {
+public class CrudService {
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -42,5 +42,8 @@ public class MongoserviceImpl {
     }
 
 
+    public void insertUser(User user) {
+        mongoTemplate.insert(user);
+    }
 
 }
