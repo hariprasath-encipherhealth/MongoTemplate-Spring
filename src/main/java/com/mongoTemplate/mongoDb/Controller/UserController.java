@@ -48,7 +48,7 @@ public class UserController {
     @GetMapping("/groupBy/aggregate/city")
     public List<CityGroup> groupBy()
     {
-        return userAggregation.getUserAgeGroupCount();
+        return userAggregation.getUserCityGroupCount();
     }
 
 

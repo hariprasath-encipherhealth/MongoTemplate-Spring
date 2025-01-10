@@ -32,7 +32,7 @@ public class UserAggregation {
     }
 
 
-    public List<CityGroup> getUserAgeGroupCount()
+    public List<CityGroup> getUserCityGroupCount()
     {
         Aggregation aggregation = Aggregation.newAggregation(  // Exclude null city values
                 Aggregation.group("city").count().as("countOfCity")
