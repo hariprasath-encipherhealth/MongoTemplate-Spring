@@ -57,4 +57,10 @@ public class AggregationController {
     {
         return aggregationService.findAndRenameFields();
     }
+
+    @GetMapping("/get/sorted")
+    public List<User> sortedUsers()
+    {
+        return aggregationService.findAndSort();
+    }
 }

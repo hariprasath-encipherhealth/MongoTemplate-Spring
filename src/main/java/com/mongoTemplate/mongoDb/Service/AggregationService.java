@@ -4,6 +4,7 @@ import com.mongoTemplate.mongoDb.DTO.CityGroup;
 import com.mongoTemplate.mongoDb.DTO.ProjectionClass;
 import com.mongoTemplate.mongoDb.Document.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
@@ -69,6 +70,20 @@ public class AggregationService {
 
         AggregationResults<ProjectionClass> aggregationResults = mongoTemplate.aggregate(aggregation,"user", ProjectionClass.class);
         List<ProjectionClass> answer = aggregationResults.getMappedResults();
+
+        return answer;
+    }
+
+    public List<User> findAndSort() {
+
+
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(Criteria.where("age").lte(35)),
+                Aggregation.sort(Sort.by(Sort.Order.desc("age")))
+        );
+
+        AggregationResults<User> results = mongoTemplate.aggregate(aggregation,"user", User.class);
+        List<User> answer = results.getMappedResults();
 
         return answer;
     }
